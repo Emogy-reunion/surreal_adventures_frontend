@@ -1,6 +1,7 @@
 import Hero from "@/components/landing/Hero";
 import WhyUs from "@/components/landing/WhyUs";
 import HowItWorks from "@/components/landing/HowItWorks";
+import CTA from "@/components/landing/CTA";
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Hero />
       <WhyUs />
       <HowItWorks />
+      <CTA />
     </main>
   );
 };
