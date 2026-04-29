@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 
+:root {
+  --navy: #1B263B;
+  --orange: #FF6B35;
+  --bg: #F8F9FA;
+}
+
 *{
 	margin: 0;
 	padding: 0;
