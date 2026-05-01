@@ -1,14 +1,19 @@
 import "./globals.css";
-
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export default function RootLayout({ children }) {
-	return (
-		<html lang="en">
-            		<body className="wrapper">
-	    			<div className="layout">
-            				{children}
-          			</div>
-	    		</body>
-        	</html>
-    	);
+  return (
+    <html lang="en">
+      <body>
+        <Navbar />
+
+        <main className="main">
+          {children}
+        </main>
+
+        <Footer />
+      </body>
+    </html>
+  );
 }
