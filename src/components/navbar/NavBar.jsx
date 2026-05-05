@@ -21,7 +21,7 @@ const navLinks = [
     categories: [] 
   },
   { name: "Blog", path: "#" },
-  { name: "Contact", path: "#" },
+  { name: "Contact", path: "/guest/contact" },
 ];
 
 const NavBar = () => {
@@ -96,7 +96,7 @@ const NavBar = () => {
         {/* Right-side icons: Login/Logout */}
         <div className={styles.rightLinks}>
           <li>
-            <Link href="#" title="Login" className={styles.iconLink}>
+            <Link href="/guest/login" title="Login" className={styles.iconLink}>
               <User size={20} color="#102533" />
             </Link>
           </li>
