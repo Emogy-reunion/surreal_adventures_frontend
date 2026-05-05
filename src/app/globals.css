@@ -46,6 +46,5 @@ body{
 }
 
 .main {
-  	flex: 1;
-  	padding-top: var(--nav-height);
+  	flex: 1:
 }
