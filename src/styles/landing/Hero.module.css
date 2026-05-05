@@ -1,10 +1,10 @@
 .hero {
   position: relative; /* Essential: This becomes the anchor for absolute children */
   width: 100%;
-  min-height: calc(75vh - var(--nav-height));
+  min-height: 75vh;
   display: flex;
-  align-items: center; /* Centers content vertically */
-  justify-content: center; /* Centers content horizontally */
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.45);
 }
