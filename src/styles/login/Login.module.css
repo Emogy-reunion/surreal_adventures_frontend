@@ -126,3 +126,72 @@
     font-size: 1.6rem;
   }
 }
+
+/* Container for the messages to sit at the top of the form */
+.messageContainer {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* Global Error Banner */
+.errorBanner {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Global Success Banner */
+.successBanner {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+  color: #15803d; /* Professional deep green */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Specific Input Field Errors (under inputs) */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+  margin-left: 0.25rem;
+  font-weight: 500;
+}
+
+/* Input state update when error exists */
+.inputError {
+  border-color: #fca5a5 !important;
+  background-color: #fffafb;
+}
+
+/* Loading Spinner Animation */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
