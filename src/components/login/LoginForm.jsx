@@ -35,7 +35,7 @@ const Login = () => {
         setGlobalError(null);
 
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('/api/v1/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
