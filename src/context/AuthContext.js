@@ -15,7 +15,7 @@ export function AuthProvider({children}) {
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
-				const response = await fetch('/api/user_data', {
+				const response = await fetch('/api/v1/user_data', {
 					method: 'GET',
 					credentials: 'include'
 				});
@@ -40,7 +40,7 @@ export function AuthProvider({children}) {
 		const interval = setInterval(async () => {
 
 			try {
-                		const response = await fetch('/api/refresh', {
+                		const response = await fetch('/api/v1/refresh', {
                     			method: 'POST',
                     			credentials: 'include'
                 		});
@@ -59,7 +59,7 @@ export function AuthProvider({children}) {
 	}, []);
 
 	const logout = async () => {
-		const response = await fetch('/api/logout', {
+		const response = await fetch('/api/v1/logout', {
 			method: 'POST',
 			credentials: 'include'
 		});
