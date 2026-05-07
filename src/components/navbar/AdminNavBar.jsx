@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Home", path: "/admin/dashboard" },
   { 
     name: "Destinations", 
-    path: "#",
+    path: "/admin/destinations",
     categories: [] // Add sub-links here later if needed
   },
   { 
