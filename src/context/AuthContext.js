@@ -40,7 +40,7 @@ export function AuthProvider({children}) {
 		const interval = setInterval(async () => {
 
 			try {
-                		const response = await fetch('/api/v1/refresh', {
+                		const response = await fetch('/api/v1/refresh_token', {
                     			method: 'POST',
                     			credentials: 'include'
                 		});
