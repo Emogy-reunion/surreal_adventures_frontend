@@ -306,22 +306,16 @@ const ToursComponent = ({ data }) => {
 
                   <div className={styles.priceSection}>
 
-                    <span className={styles.priceLabel}>
-                      Starting From
-                    </span>
-
                     <div className={styles.priceWrapper}>
 
                       {tour.on_discount && (
                         <span className={styles.oldPrice}>
                           {tour.currency}{" "}
-                          {tour.start_price}
+                          {tour.price}
                         </span>
                       )}
 
                       <div className={styles.priceRow}>
-
-                        <DollarSign size={16} />
 
                         <span className={styles.price}>
                           {tour.currency}{" "}
