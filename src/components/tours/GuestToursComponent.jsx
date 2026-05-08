@@ -243,15 +243,13 @@ const ToursComponent = ({ data }) => {
 
                       {tour.on_discount && (
                         <span className={styles.oldPrice}>
-                          {tour.currency}{" "}
-                          {tour.price}
+                          {tour.currency} {Number(tour.price).toLocaleString('en-KE')}
                         </span>
                       )}
 
                       <div className={styles.priceRow}>
                         <span className={styles.price}>
-                          {tour.currency}{" "}
-                          {tour.current_price}
+                          {tour.currency} {Number(tour.current_price).toLocaleString('en-KE')}
                         </span>
 
                       </div>

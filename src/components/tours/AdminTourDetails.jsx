@@ -38,19 +38,6 @@ export default function TourDetailsComponent({ tour }) {
   const hasImages =
     tour?.images?.length > 0;
 
-  const whatsappMessage =
-    encodeURIComponent(
-      `Hi 👋, I’m interested in booking this tour:\n\n` +
-      `🏝️ ${tour.name}\n` +
-      `📍 ${tour.location}, ${tour.country}\n` +
-      `🗓️ ${tour.start_date} - ${tour.end_date}\n` +
-      `⏳ ${tour.duration}\n\n` +
-      `Please share more details about pricing and availability.`
-    );
-
-  const whatsappLink =
-    `https://wa.me/?text=${whatsappMessage}`;
-
   return (
     <div className={styles.container}>
 
@@ -86,40 +73,22 @@ export default function TourDetailsComponent({ tour }) {
               </span>
             </div>
 
+	     <div className={`${styles.metaItem} ${styles.pricePill}`}>
+  		{tour.on_discount && (
+    			<>
+      				<Tag size={14} className={styles.saleIcon} />
+      				<span className={styles.oldPriceSlashed}>
+        				{tour.currency} {Number(tour.price).toLocaleString()}
+      				</span>
+    			</>
+  		)}
+  
+	  	<span className={styles.activePrice}>
+    			{tour.currency} {Number(tour.current_price).toLocaleString()}
+  		</span>
+	      </div>
+
           </div>
-
-        </div>
-
-        <div className={styles.priceCard}>
-
-          <h4 className={styles.priceLabel}>
-            Tour Price
-          </h4>
-
-          {tour.on_discount ? (
-            <div className={styles.priceWrapper}>
-
-              <span className={styles.oldPrice}>
-                {tour.currency}{" "}
-                {tour.price}
-              </span>
-
-              <div className={styles.currentPrice}>
-                <span>
-                  {tour.currency}{" "}
-                  {tour.current_price}
-                </span>
-              </div>
-
-            </div>
-          ) : (
-            <div className={styles.currentPrice}>
-              <span>
-                {tour.currency}{" "}
-                {tour.current_price}
-              </span>
-            </div>
-          )}
 
         </div>
 
