@@ -114,7 +114,6 @@ export default function TourDetailsComponent({ tour }) {
             </div>
           ) : (
             <div className={styles.currentPrice}>
-              <DollarSign size={18} />
               <span>
                 {tour.currency}{" "}
                 {tour.current_price}
@@ -286,23 +285,6 @@ export default function TourDetailsComponent({ tour }) {
 
         </div>
       )}
-
-      <div className={styles.ctaWrapper}>
-
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.whatsappBtn}
-        >
-
-          <MessageCircle size={18} />
-
-          Book via WhatsApp
-
-        </a>
-
-      </div>
 
     </div>
   );
