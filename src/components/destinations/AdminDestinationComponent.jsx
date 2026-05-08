@@ -257,8 +257,6 @@ const DestinationsComponent = ({ data }) => {
 
                       <div className={styles.priceRow}>
 
-                        <DollarSign size={16} />
-
                         <span className={styles.price}>
                           {
                             destination.currency
