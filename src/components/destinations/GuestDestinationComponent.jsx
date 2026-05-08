@@ -107,7 +107,8 @@ const GuestDestinationsComponent = ({ data }) => {
                     <span className={styles.priceLabel}>Starting From</span>
                     <div className={styles.priceRow}>
                       <span className={styles.price}>
-                        {destination.currency} {destination.start_price}
+                        {destination.currency}{" "}
+		  	{Number(destination.start_price || 0).toLocaleString('en-KE')}
                       </span>
                     </div>
                   </div>
