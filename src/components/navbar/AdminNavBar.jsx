@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Home", path: "/admin/dashboard" },
   { 
     name: "Destinations", 
-    path: "#",
+    path: "/admin/destinations",
     categories: [] // Add sub-links here later if needed
   },
   { 
@@ -96,7 +96,7 @@ const AdminNavBar = () => {
         <div className={styles.rightLinks}>
   		{/* Upload Link */}
   		<li>
-    			<Link href="/upload" title="Upload" className={styles.iconLink}>
+    			<Link href="/admin/upload" title="Upload" className={styles.iconLink}>
       				<Upload size={20} color="#102533" />
     			</Link>
   		</li>
