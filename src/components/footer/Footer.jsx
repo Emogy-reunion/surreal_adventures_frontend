@@ -21,9 +21,9 @@ const Footer = () => {
         <div className={styles.section}>
           <h4 className={styles.heading}>Explore</h4>
           <ul className={styles.list}>
-            <li><a href="#" className={styles.link}>Destinations</a></li>
-            <li><a href="#" className={styles.link}>Experiences</a></li>
-            <li><a href="#" className={styles.link}>Categories</a></li>
+            <li><a href="/guest/destinations" className={styles.link}>Destinations</a></li>
+            <li><a href="/guest/tours" className={styles.link}>Experiences</a></li>
+            <li><a href="/guest/login" className={styles.link}>Login</a></li>
           </ul>
         </div>
 
@@ -31,8 +31,8 @@ const Footer = () => {
         <div className={styles.section}>
           <h4 className={styles.heading}>Contact</h4>
           <ul className={styles.list}>
-            <li className={styles.item}><Mail size={16} /> info@travelly.com</li>
-            <li className={styles.item}><Phone size={16} /> +123 456 789</li>
+            <li className={styles.item}><Mail size={16} /> reservations@surrealadventures.co.ke</li>
+            <li className={styles.item}><Phone size={16} /> +254 720 380 930</li>
             <li className={styles.item}><MapPin size={16} /> Nairobi, Kenya</li>
           </ul>
         </div>
