@@ -17,9 +17,9 @@ export default function DestinationDetailsComponent({ destination }) {
     const hasImages = destination?.images?.length > 0;
 
     const whatsappMessage = encodeURIComponent(
-        `Hi 👋, I’m interested in booking this destination:\n\n` +
-        `🏝️ ${destination.name}\n` +
-        `📍 ${destination.location}, ${destination.country}\n\n` +
+        `Hi, I’m interested in booking this destination:\n\n` +
+        `${destination.name}\n` +
+        `${destination.location}, ${destination.country}\n\n` +
         `Please share more details about availability and pricing.`
     );
 
