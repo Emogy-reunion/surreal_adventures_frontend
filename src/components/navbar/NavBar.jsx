@@ -7,20 +7,18 @@ import { Menu, X, User, Mail, LogOut } from "lucide-react"; // Added LogOut icon
 import { useRouter } from "next/navigation";
 import styles from "@/styles/navbar/NavBar.module.css";
 
-// Updated links for your new app structure
 const navLinks = [
   { name: "Home", path: "/" },
   { 
     name: "Destinations", 
     path: "/guest/destinations",
-    categories: [] // Add sub-links here later if needed
+    categories: []
   },
   { 
     name: "Tours", 
-    path: "#",
+    path: "/guest/tours",
     categories: [] 
   },
-  { name: "Blog", path: "#" },
   { name: "Contact", path: "/guest/contact" },
 ];
 
@@ -93,7 +91,6 @@ const NavBar = () => {
           ))}
         </div>
 
-        {/* Right-side icons: Login/Logout */}
         <div className={styles.rightLinks}>
           <li>
             <Link href="/guest/login" title="Login" className={styles.iconLink}>
@@ -163,7 +160,7 @@ const NavBar = () => {
           {/* Mobile Login/Logout */}
           <hr style={{ border: '0.5px solid rgba(0,0,0,0.1)', width: '100%' }} />
           <li>
-            <Link href="#" className={styles.navLink} onClick={() => setSidebar(false)}>Login</Link>
+            <Link href="/guest/login" className={styles.navLink} onClick={() => setSidebar(false)}>Login</Link>
           </li>
         </ul>
       )}
