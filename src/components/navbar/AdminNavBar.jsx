@@ -13,15 +13,14 @@ const navLinks = [
   { 
     name: "Destinations", 
     path: "/admin/destinations",
-    categories: [] // Add sub-links here later if needed
+    categories: []
   },
   { 
     name: "Tours", 
-    path: "#",
+    path: "/admin/tours",
     categories: [] 
   },
   { name: "Blog", path: "#" },
-  { name: "Contact", path: "#" },
 ];
 
 const AdminNavBar = () => {
@@ -54,7 +53,7 @@ const AdminNavBar = () => {
       <ul className={styles.navList}>
         {/* Logo - Kept exactly as requested */}
         <li className={styles.logoItem}>
-          <Link href="#">
+          <Link href="/admin/dashboard">
             <div className={styles.logoWrapper}>
               <Image 
                 src="/logo.png"
@@ -103,7 +102,7 @@ const AdminNavBar = () => {
 
   		{/* Profile Link */}
   		<li>
-    			<Link href="/profile" title="Profile" className={styles.iconLink}>
+    			<Link href="#" title="Profile" className={styles.iconLink}>
       				<UserCircle size={20} color="#102533" />
     			</Link>
   		</li>
@@ -170,7 +169,7 @@ const AdminNavBar = () => {
           {/* Mobile Login/Logout */}
           <hr style={{ border: '0.5px solid rgba(0,0,0,0.1)', width: '100%' }} />
           <li>
-            <Link href="#" className={styles.navLink} onClick={() => setSidebar(false)}>Login</Link>
+            <Link href="/admin/upload" className={styles.navLink} onClick={() => setSidebar(false)}>Post</Link>
           </li>
         </ul>
       )}
