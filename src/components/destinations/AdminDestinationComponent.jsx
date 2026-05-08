@@ -148,7 +148,7 @@ const DestinationsComponent = ({ data }) => {
                 <div className={styles.imageWrapper}>
 
                   <Link
-                    href={`/admin/destinations/${destination.slug}`}
+                    href={`/admin/destinations/${destination.id}`}
                   >
 
                     <div className={styles.aspectRatio}>
@@ -273,7 +273,7 @@ const DestinationsComponent = ({ data }) => {
                     </div>
 
                     <Link
-                      href={`/admin/destinations/${destination.slug}`}
+                      href={`/admin/destinations/${destination.id}`}
                       className={styles.viewButton}
                     >
                       View
