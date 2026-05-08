@@ -16,15 +16,6 @@ export default function DestinationDetailsComponent({ destination }) {
 
     const hasImages = destination?.images?.length > 0;
 
-    const whatsappMessage = encodeURIComponent(
-        `Hi 👋, I’m interested in booking this destination:\n\n` +
-        `🏝️ ${destination.name}\n` +
-        `📍 ${destination.location}, ${destination.country}\n\n` +
-        `Please share more details about availability and pricing.`
-    );
-
-    const whatsappLink = `https://wa.me/?text=${whatsappMessage}`;
-
     return (
         <>
 
@@ -92,19 +83,6 @@ export default function DestinationDetailsComponent({ destination }) {
         			</div>
     			</div>
 		)}
-
-                {/* CTA */}
-                <div className={styles.ctaWrapper}>
-                    <a
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.whatsappBtn}
-                    >
-                        <MessageCircle size={18} />
-                        Book via WhatsApp
-                    </a>
-                </div>
             </div>
         </>
     );
