@@ -41,10 +41,10 @@ export default function TourDetailsComponent({ tour }) {
   const whatsappMessage =
     encodeURIComponent(
       `Hi 👋, I’m interested in booking this tour:\n\n` +
-      `🏝️ ${tour.name}\n` +
-      `📍 ${tour.location}, ${tour.country}\n` +
-      `🗓️ ${tour.start_date} - ${tour.end_date}\n` +
-      `⏳ ${tour.duration}\n\n` +
+      ` ${tour.name}\n` +
+      ` ${tour.location}, ${tour.country}\n` +
+      `	${tour.start_date} - ${tour.end_date}\n` +
+      `	${tour.duration}\n\n` +
       `Please share more details about pricing and availability.`
     );
 
