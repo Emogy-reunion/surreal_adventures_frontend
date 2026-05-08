@@ -86,41 +86,19 @@ export default function TourDetailsComponent({ tour }) {
               </span>
             </div>
 
+	    <div className={`${styles.metaItem} ${styles.pricePill}`}>
+    		{tour.on_discount && (
+      			<span className={styles.oldPriceSlashed}>
+        			{tour.currency} {Number(tour.price).toLocaleString()}
+      			</span>
+    		)}
+    		
+	  	<span className={styles.activePrice}>
+      			{tour.currency} {Number(tour.current_price).toLocaleString()}
+    		</span>
+  	      </div>
+
           </div>
-
-        </div>
-
-        <div className={styles.priceCard}>
-
-          <h4 className={styles.priceLabel}>
-            Tour Price
-          </h4>
-
-          {tour.on_discount ? (
-            <div className={styles.priceWrapper}>
-
-              <span className={styles.oldPrice}>
-                {tour.currency}{" "}
-                {tour.price}
-              </span>
-
-              <div className={styles.currentPrice}>
-                <span>
-                  {tour.currency}{" "}
-                  {tour.current_price}
-                </span>
-              </div>
-
-            </div>
-          ) : (
-            <div className={styles.currentPrice}>
-              <DollarSign size={18} />
-              <span>
-                {tour.currency}{" "}
-                {tour.current_price}
-              </span>
-            </div>
-          )}
 
         </div>
 
