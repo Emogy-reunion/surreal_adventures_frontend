@@ -55,7 +55,7 @@ const GuestDestinationsComponent = ({ data }) => {
           {destinations.map((destination) => (
             <div key={destination.id} className={styles.card}>
               <div className={styles.imageWrapper}>
-                <Link href={`/destinations/${destination.id}`}>
+                <Link href={`/guest/destinations/${destination.id}`}>
                   <div className={styles.aspectRatio}>
                     <Image
                       src={
@@ -114,7 +114,7 @@ const GuestDestinationsComponent = ({ data }) => {
 
                   {/* Updated Link to public destination view */}
                   <Link
-                    href={`/destinations/${destination.id}`}
+                    href={`/guest/destinations/${destination.id}`}
                     className={styles.viewButton}
                   >
                     View Details
