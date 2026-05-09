@@ -28,6 +28,17 @@ const CATEGORIES = [
   "honeymoon",
 ];
 
+const COUNTRIES = [
+  "Kenya",
+  "Rwanda",
+  "Tanzania",
+  "Uganda",
+  "South Africa",
+  "Ethiopia",
+  "United Arab Emirates",
+  "Malaysia",
+];
+
 const FIELD_STEP_MAP = {
   name: 1,
   country: 1,
@@ -341,24 +352,38 @@ const UploadTourForm = () => {
           </div>
 
           <div className={styles.group}>
-            <div className={styles.inputRow}>
-              <Globe className={styles.icon} />
 
-              <input
-                type="text"
-                name="country"
-                placeholder="Country"
-                value={formData.country}
-                onChange={handleChange}
-              />
-            </div>
+  		<div className={styles.inputRow}>
+    			<Globe className={styles.icon} />
 
-            {formErrors.country && (
-              <p className={styles.errorMessage}>
-                {formErrors.country}
-              </p>
-            )}
-          </div>
+    			<select
+      				name="country"
+      				value={formData.country}
+      				onChange={handleChange}
+    			>
+      				<option value="">
+        				Select country
+      				</option>
+
+      				{COUNTRIES.map((country) => (
+        				<option
+          					key={country}
+          					value={country}
+        				>
+          					{country}
+        				</option>
+      				))}
+    			</select>
+
+  		</div>
+
+  		{formErrors.country && (
+    			<p className={styles.errorMessage}>
+      				{formErrors.country}
+    			</p>
+  		)}
+
+	</div>
 
           <div className={styles.group}>
             <div className={styles.inputRow}>
