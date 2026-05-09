@@ -132,3 +132,68 @@
     width: 100%;
   }
 }
+
+
+.searchForm {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  padding: 1rem;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.selectField,
+.priceField {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 12px;
+
+  padding: 1rem 1.1rem;
+
+  font-size: 0.95rem;
+
+  background: white;
+
+  color: var(--navy);
+}
+
+.selectField {
+  cursor: pointer;
+}
+
+.priceField::placeholder {
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroBtn {
+    width: 100%;
+  }
+}
