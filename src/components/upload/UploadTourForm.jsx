@@ -432,7 +432,7 @@ const UploadTourForm = () => {
               <input
                 type="text"
                 name="duration"
-                placeholder="Duration e.g 5 Days"
+                placeholder="Duration e.g 5 Days 4 Nights"
                 value={formData.duration}
                 onChange={handleChange}
               />
@@ -579,6 +579,9 @@ const UploadTourForm = () => {
       {step === 3 && (
 
         <div className={styles.inputGroup}>
+	  <label className={styles.inputLabel}>
+    		Tour Start Date
+  	  </label>
 
           <div className={styles.group}>
             <div className={styles.inputRow}>
@@ -600,6 +603,9 @@ const UploadTourForm = () => {
           </div>
 
           <div className={styles.group}>
+	      <label className={styles.inputLabel}>
+    			Tour End Date
+  	      </label>
             <div className={styles.inputRow}>
               <Calendar className={styles.icon} />
 
@@ -625,7 +631,7 @@ const UploadTourForm = () => {
               <input
                 type="number"
                 name="discount_price"
-                placeholder="Discount price"
+                placeholder="Price after discount"
                 value={formData.discount_price}
                 onChange={handleChange}
               />
@@ -639,6 +645,10 @@ const UploadTourForm = () => {
           </div>
 
           <div className={styles.group}>
+	      <label className={styles.inputLabel}>
+   	 		Discount Start Date
+  	      </label>
+
             <div className={styles.inputRow}>
               <Calendar className={styles.icon} />
 
@@ -658,6 +668,10 @@ const UploadTourForm = () => {
           </div>
 
           <div className={styles.group}>
+
+	    <label className={styles.inputLabel}>
+    		Discount End Date
+  	    </label>
             <div className={styles.inputRow}>
               <Calendar className={styles.icon} />
 
