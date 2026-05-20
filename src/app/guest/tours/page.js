@@ -1,30 +1,49 @@
-import ToursComponent from '@/components/tours/GuestToursComponent';
+"use client";
 
-const BACKEND_URL = process.env.BACKEND_URL;
+import { useEffect, useState } from "react";
 
-const ToursPage = async ({ searchParams }) => {
+import ToursComponent from "@/components/tours/GuestToursComponent";
 
-  const page = (await searchParams).page || 1;
+const ToursPage = () => {
 
-  const url =
-    `${BACKEND_URL}/api/v1/tours?page=${page}&per_page=12`;
+  const [tours, setTours] = useState([]);
+  const [pagination, setPagination] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  const response = await fetch(url, {
-    method: 'GET',
-    cache: 'no-store',
-  });
+  const fetchTours = async (page = 1) => {
 
-  if (!response.ok) {
-    throw new Error(
-      'Failed to fetch tours.'
-    );
-  }
+    setLoading(true);
 
-  const data = await response.json();
+    try {
+
+      const response = await fetch(
+        `/api/v1/tours?page=${page}&per_page=12`
+      );
+
+      const data = await response.json();
+
+      setTours(data.tours || []);
+      setPagination(data.pagination || {});
+
+    } catch {
+
+      alert("Failed to fetch tours.");
+
+    }
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchTours();
+  }, []);
 
   return (
     <ToursComponent
-      data={data}
+      tours={tours}
+      pagination={pagination}
+      loading={loading}
+      onPageChange={fetchTours}
     />
   );
 };
