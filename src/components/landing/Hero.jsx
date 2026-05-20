@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { useRouter } from "next/navigation";
 
 import styles from "@/styles/landing/Hero.module.css";
 
@@ -27,7 +29,13 @@ const CATEGORIES = [
 
 export default function Hero() {
 
+  const router = useRouter();
+
   const videoRef = useRef(null);
+
+  const [country, setCountry] = useState("");
+  const [category, setCategory] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   useEffect(() => {
 
@@ -40,6 +48,27 @@ export default function Hero() {
     video.play().catch(() => {});
 
   }, []);
+
+  const handleSearch = () => {
+
+    const params = new URLSearchParams();
+
+    if (country) {
+      params.append("country", country);
+    }
+
+    if (category) {
+      params.append("category", category);
+    }
+
+    if (maxPrice) {
+      params.append("max_price", maxPrice);
+    }
+
+    router.push(
+      `/guest/tours?${params.toString()}`
+    );
+  };
 
   return (
     <section className={styles.hero}>
@@ -67,11 +96,17 @@ export default function Hero() {
           Discover unforgettable tours and destinations
         </p>
 
-        <form className={styles.searchForm}>
+        <div className={styles.searchForm}>
 
           <div className={styles.formGrid}>
 
-            <select className={styles.selectField}>
+            <select
+              value={country}
+              onChange={(e) =>
+                setCountry(e.target.value)
+              }
+              className={styles.selectField}
+            >
               <option value="">
                 Select Country
               </option>
@@ -84,9 +119,16 @@ export default function Hero() {
                   {country}
                 </option>
               ))}
+
             </select>
 
-            <select className={styles.selectField}>
+            <select
+              value={category}
+              onChange={(e) =>
+                setCategory(e.target.value)
+              }
+              className={styles.selectField}
+            >
               <option value="">
                 Select Category
               </option>
@@ -99,16 +141,22 @@ export default function Hero() {
                   {category.toUpperCase()}
                 </option>
               ))}
+
             </select>
 
             <input
               type="number"
               placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) =>
+                setMaxPrice(e.target.value)
+              }
               className={styles.priceField}
             />
 
             <button
               type="button"
+              onClick={handleSearch}
               className={styles.heroBtn}
             >
               Search
@@ -116,7 +164,7 @@ export default function Hero() {
 
           </div>
 
-        </form>
+        </div>
 
       </div>
 
