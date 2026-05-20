@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 import {
   MapPin,
   Star,
@@ -9,7 +7,6 @@ import {
   CalendarDays,
   Clock3,
   BadgePercent,
-  DollarSign,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -17,91 +14,33 @@ import Image from "next/image";
 
 import styles from "@/styles/tours/ToursComponent.module.css";
 
-const ToursComponent = ({ data }) => {
-
-  const [tours, setTours] = useState(
-    data.tours || []
-  );
-
-  const [pagination, setPagination] = useState(
-    data.pagination || {}
-  );
-
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-
-    setTours(data.tours || []);
-
-    setPagination(
-      data.pagination || {}
-    );
-
-  }, [data]);
-
-  const fetchPage = async (page) => {
-
-    if (!page) return;
-
-    setLoading(true);
-
-    try {
-
-      const response = await fetch(
-        `/api/v1/tours?page=${page}`
-      );
-
-      const newData = await response.json();
-
-      setTours(
-        newData.tours || []
-      );
-
-      setPagination(
-        newData.pagination || {}
-      );
-
-    } catch {
-
-      alert(
-        "Failed to fetch tours."
-      );
-
-    }
-
-    setLoading(false);
-  };
+const ToursComponent = ({
+  tours = [],
+  pagination = {},
+  loading = false,
+  onPageChange,
+}) => {
 
   return (
     <main className={styles.container}>
 
       <div className={styles.headerSection}>
-
         <div>
-
           <h4 className={styles.subheading}>
             Premium Tour Packages
           </h4>
-
         </div>
-
       </div>
 
       {tours.length === 0 ? (
 
         <div className={styles.emptyState}>
 
-          <Compass
-            className={styles.emptyIcon}
-          />
+          <Compass className={styles.emptyIcon} />
 
-          <h2>
-            No tours found
-          </h2>
+          <h2>No tours found</h2>
 
-          <p>
-            Tours will appear here.
-          </p>
+          <p>Tours will appear here.</p>
 
         </div>
 
@@ -133,11 +72,6 @@ const ToursComponent = ({ data }) => {
                       alt={tour.name}
                       fill
                       className={styles.image}
-                      sizes="
-                        (max-width: 768px) 100vw,
-                        (max-width: 1200px) 50vw,
-                        33vw
-                      "
                     />
 
                   </div>
@@ -153,12 +87,10 @@ const ToursComponent = ({ data }) => {
                   </span>
 
                   {tour.is_featured && (
-
                     <span className={styles.featuredBadge}>
                       <Star size={14} />
                       Featured
                     </span>
-
                   )}
 
                 </div>
@@ -179,14 +111,12 @@ const ToursComponent = ({ data }) => {
                   </h2>
 
                   <div className={styles.locationRow}>
-
                     <MapPin size={15} />
 
                     <span>
                       {tour.location},{" "}
                       {tour.country}
                     </span>
-
                   </div>
 
                 </div>
@@ -202,7 +132,6 @@ const ToursComponent = ({ data }) => {
                 <div className={styles.infoGrid}>
 
                   <div className={styles.infoCard}>
-
                     <CalendarDays size={16} />
 
                     <div>
@@ -210,9 +139,7 @@ const ToursComponent = ({ data }) => {
                         Start Date
                       </span>
 
-                      <p>
-                        {tour.start_date}
-                      </p>
+                      <p>{tour.start_date}</p>
                     </div>
 
                   </div>
@@ -226,9 +153,7 @@ const ToursComponent = ({ data }) => {
                         Tour Type
                       </span>
 
-                      <p>
-                        {tour.category}
-                      </p>
+                      <p>{tour.category}</p>
                     </div>
 
                   </div>
@@ -239,22 +164,17 @@ const ToursComponent = ({ data }) => {
 
                   <div className={styles.priceSection}>
 
-                    <div className={styles.priceWrapper}>
+                    {tour.on_discount && (
+                      <span className={styles.oldPrice}>
+                        {tour.currency}{" "}
+                        {Number(tour.price).toLocaleString("en-KE")}
+                      </span>
+                    )}
 
-                      {tour.on_discount && (
-                        <span className={styles.oldPrice}>
-                          {tour.currency} {Number(tour.price).toLocaleString('en-KE')}
-                        </span>
-                      )}
-
-                      <div className={styles.priceRow}>
-                        <span className={styles.price}>
-                          {tour.currency} {Number(tour.current_price).toLocaleString('en-KE')}
-                        </span>
-
-                      </div>
-
-                    </div>
+                    <span className={styles.price}>
+                      {tour.currency}{" "}
+                      {Number(tour.current_price).toLocaleString("en-KE")}
+                    </span>
 
                   </div>
 
@@ -284,9 +204,7 @@ const ToursComponent = ({ data }) => {
           <button
             disabled={!pagination.prev}
             onClick={() =>
-              fetchPage(
-                pagination.prev
-              )
+              onPageChange?.(pagination.prev)
             }
             className={styles.pageButton}
           >
@@ -294,16 +212,13 @@ const ToursComponent = ({ data }) => {
           </button>
 
           <span className={styles.pageInfo}>
-            Page {pagination.page} of{" "}
-            {pagination.pages}
+            Page {pagination.page} of {pagination.pages}
           </span>
 
           <button
             disabled={!pagination.next}
             onClick={() =>
-              fetchPage(
-                pagination.next
-              )
+              onPageChange?.(pagination.next)
             }
             className={styles.pageButton}
           >
@@ -315,11 +230,9 @@ const ToursComponent = ({ data }) => {
       )}
 
       {loading && (
-
         <p className={styles.loading}>
           Loading tours...
         </p>
-
       )}
 
     </main>
