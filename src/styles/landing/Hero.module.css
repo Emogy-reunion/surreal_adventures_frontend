@@ -1,0 +1,134 @@
+.hero {
+  position: relative; /* Essential: This becomes the anchor for absolute children */
+  width: 100%;
+  height: 70vh; /* Set to viewport height so it fills the screen */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures video fills area without stretching */
+  z-index: -1; /* Puts the video behind everything else */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Darkens the video so text is readable */
+  z-index: 0; 
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1; /* Sits on top of the video and overlay */
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 4rem; /* Larger for desktop */
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Action Bar (Search & Button) */
+.heroActions {
+  display: flex;
+  gap: 0; /* No gap for a "joined" look, or set to 10px for separate blocks */
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.heroSearch {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  min-width: 300px;
+  background: transparent;
+}
+
+.heroBtn {
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  border: none;
+  background: #ff6b35; /* Your orange brand color */
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.heroBtn:hover {
+  background: #e55a2a;
+  transform: translateY(-1px);
+}
+
+.heroBtn:active {
+  transform: translateY(1px);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    height: 90vh; /* Slightly shorter on mobile */
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .heroSearch {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .heroBtn {
+    width: 100%;
+  }
+}
