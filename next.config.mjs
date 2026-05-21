@@ -10,20 +10,25 @@ const nextConfig = {
         protocol: 'http',
         hostname: '127.0.0.1',
         port: '5000',
-        pathname: '/api/send_image/**',
+        pathname: '/api/v1/send_image/**',
       },
 
       // Production (Flask behind Nginx)
       {
         protocol: 'https',
-        hostname: '#',
-        pathname: '/api/send_image/**',
+        hostname: 'surrealadventures.co.ke',
+        pathname: '/api/v1/send_image/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.surrealadventures.co.ke',
+        pathname: '/api/v1/send_image/**',
       },
     ],
   },
 
   async rewrites() {
-	  const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:5000';
+          const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:5000';
     return [
       {
         source: '/api/:path*',

@@ -4,7 +4,7 @@ import styles from "@/styles/footer/Footer.module.css";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
-const Footer = () => {
+const AdminFooter = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -21,9 +21,9 @@ const Footer = () => {
         <div className={styles.section}>
           <h4 className={styles.heading}>Explore</h4>
           <ul className={styles.list}>
-            <li><a href="/guest/destinations" className={styles.link}>Destinations</a></li>
-            <li><a href="/guest/tours" className={styles.link}>Experiences</a></li>
-            <li><a href="/guest/login" className={styles.link}>Login</a></li>
+            <li><a href="/admin/destinations" className={styles.link}>Destinations</a></li>
+            <li><a href="/admin/tours" className={styles.link}>Experiences</a></li>
+            <li><a href="/admin/upload" className={styles.link}>Post</a></li>
           </ul>
         </div>
 
@@ -56,4 +56,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default AdminFooter;

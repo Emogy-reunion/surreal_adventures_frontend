@@ -1,0 +1,303 @@
+.container {
+  width: 100%;
+  padding: 2rem 1rem 4rem;
+  background: var(--bg);
+}
+
+.headerSection {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.subheading {
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(320px, 1fr)
+  );
+  gap: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.1);
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.aspectRatio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.15),
+    transparent
+  );
+}
+
+.topRow {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryBadge {
+  background: rgba(255,255,255,0.92);
+  color: var(--navy);
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 999px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+.featuredBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  background: var(--orange);
+  color: white;
+
+  padding: 0.45rem 0.8rem;
+
+  border-radius: 999px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.actions {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  z-index: 20;
+}
+
+.actionIcon {
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+
+  position: absolute;
+  top: 1.8rem;
+  right: 0;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  min-width: 140px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.actions:hover .dropdown {
+  display: block;
+}
+
+.dropdown button {
+  width: 100%;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 0.9rem 1rem;
+
+  cursor: pointer;
+
+  color: var(--navy);
+
+  font-weight: 500;
+}
+
+.dropdown button:hover {
+  background: var(--bg);
+}
+
+.imageContent {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  font-size: 0.95rem;
+}
+
+.cardBody {
+  padding: 1.4rem;
+}
+
+.description {
+  color: #5f6c7b;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.priceSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceLabel {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-bottom: 0.3rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  color: var(--orange);
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.viewButton {
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.viewButton:hover {
+  background: #e85b2a;
+}
+
+.pagination {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pageButton {
+  border: none;
+  background: var(--navy);
+  color: white;
+  padding: 0.8rem 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.loading {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.emptyState {
+  min-height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  color: var(--navy);
+}
+
+.emptyIcon {
+  width: 60px;
+  height: 60px;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}

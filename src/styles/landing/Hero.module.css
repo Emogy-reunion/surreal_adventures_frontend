@@ -1,10 +1,10 @@
 .hero {
   position: relative; /* Essential: This becomes the anchor for absolute children */
   width: 100%;
-  height: 70vh; /* Set to viewport height so it fills the screen */
+  min-height: 75vh;
   display: flex;
-  align-items: center; /* Centers content vertically */
-  justify-content: center; /* Centers content horizontally */
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.45);
 }
@@ -126,6 +126,71 @@
     background: white;
     border-radius: 8px;
     padding: 1rem;
+  }
+
+  .heroBtn {
+    width: 100%;
+  }
+}
+
+
+.searchForm {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  padding: 1rem;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.selectField,
+.priceField {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 12px;
+
+  padding: 1rem 1.1rem;
+
+  font-size: 0.95rem;
+
+  background: white;
+
+  color: var(--navy);
+}
+
+.selectField {
+  cursor: pointer;
+}
+
+.priceField::placeholder {
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr;
   }
 
   .heroBtn {
