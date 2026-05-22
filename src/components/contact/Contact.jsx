@@ -30,7 +30,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <a href="#" className={styles.whatsappBtn}>
+          <a href="https://wa.link/tvcg3l" className={styles.whatsappBtn}>
             <MessageCircle size={20} />
             Chat on WhatsApp
           </a>
@@ -54,7 +54,7 @@ const Contact = () => {
             Stay updated with the latest experiences, offers, and travel inspiration.
           </p>
 
-          <a href="#" className={styles.groupBtn}>
+          <a href="https://chat.whatsapp.com/G3rx23P7rnAEBKwn6UmqpA?mode=gi_t" className={styles.groupBtn}>
             Join WhatsApp Group
           </a>
         </div>
