@@ -15,7 +15,7 @@ export default async function AdminLayout({ children }) {
     const cookieStore = await cookies();
     
     // Notice we drop the extra '/v1' path step because your Flask blueprint maps to '/is_logged_in'
-    const response = await fetch(`${BACKEND_URL}/v1/is_logged_in`, {
+    const response = await fetch(`${BACKEND_URL}/api/v1/is_logged_in`, {
       method: 'GET',
       headers: { 
         cookie: cookieStore.toString() 
