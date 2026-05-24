@@ -8,10 +8,13 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
         const [user, setUser] = useState(null);
         const [loading, setLoading] = useState(true);
+	const [mounted, setMounted] = useState(false);
         const router = useRouter();
 
         // Initial Boot Check: Runs ONCE when the app loads or the page is refreshed
         useEffect(() => {
+
+		setMounted(true); // Safely locked into the client browser
                 const fetchUser = async () => {
                         try {
                                 const response = await fetch('/api/v1/user_data', {
@@ -83,6 +86,10 @@ export function AuthProvider({ children }) {
                         console.error("Logout failed:", error);
                 }
         };
+
+	if (!mounted) {
+		return null;
+	}
 
 
         return (
