@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import styles from "@/styles/login/Login.module.css";
 import { Mail, Lock, Loader2 } from "lucide-react";
 
@@ -16,6 +17,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     
     const router = useRouter();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -58,9 +60,12 @@ const Login = () => {
                 }
             } else {
                 setSuccessMessage(data.success || "Login successful! Redirecting...");
-                setTimeout(() => {
-                    router.replace('/admin/dashboard');
-                }, 2000);
+		if (data.user) {
+                    login(data.user);
+                }
+
+                router.refresh();
+		router.replace('/admin/dashboard');
             }
         } catch (error) {
             setGlobalError('Network error. Please check your connection.');
